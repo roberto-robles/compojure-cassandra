@@ -17,4 +17,22 @@ $(function(){
         });
 
     });
+
+    $('#sendPatient').on('click', function(){
+        $.ajax({
+            url: '/bluebutton/patient/add',
+            data: {
+                id: $('input[name="id"]').val(),
+                name: $('input[name="name"]').val(),
+                info: $('input[name="info"]').val()
+            },
+            type: 'POST',
+            dataType: 'json',
+            success: function(data){
+                if (data.success) {
+                    alert(data.message);
+                }
+            }
+        });
+    });
 });
