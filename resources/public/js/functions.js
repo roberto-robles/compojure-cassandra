@@ -1,0 +1,20 @@
+
+$(function(){
+    $('#patients').on('change', function(){
+        $.ajax({
+            url: '/bluebutton/patient',
+            data: {
+                id: $(this).val()
+            },
+            type: 'POST',
+            dataType: 'json',
+            success: function(data){
+                result = data[0];
+                html = 'Name: ' + result['name'] + '\n';
+                html += 'Info: ' + result['info'] + '\n';
+                $('#result').val(html);
+            }
+        });
+
+    });
+});
