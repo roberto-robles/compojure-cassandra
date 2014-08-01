@@ -22,6 +22,7 @@
   (GET "/about" [] (about-page))
   (GET "/bluebutton" [] (bluebutton-page))
   (GET "/bluebutton/patient" [] (patient-page))
+  (ANY "/json" {params :params} (json-example-handler (pr-str params)))
   (POST "/bluebutton/patient" {params :params} (patient-handler (pr-str params)))
   (POST "/bluebutton/patient/add" {params :params} (patient-add-handler (pr-str params)))
 

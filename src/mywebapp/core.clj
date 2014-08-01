@@ -31,5 +31,8 @@
   (println "patient-add-handler")
   (json/write-str {:success true :message "Completed succesfully"}))
 
+(defn json-example-handler [request]
+  (json/write-str {:success true :message "This is a JSON"}))
+
 (def patient-app
   (wrap-json-response patient-handler))
